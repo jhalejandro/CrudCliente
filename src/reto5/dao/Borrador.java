@@ -15,11 +15,11 @@ import reto5.modelos.Cliente;
  * @author jhalejandro
  */
 public class Borrador {
-    public static boolean borrar(Connection conn, Cliente cliente) throws SQLException{
+    public static boolean borrar(Connection conn, String login) throws SQLException{
         String sql = "delete from cliente  where cli_login=?";
         PreparedStatement statement = conn.prepareStatement(sql);
         
-        statement.setString(1, cliente.getLogin());
+        statement.setString(1, login);
         
         int rowsDeleted = statement.executeUpdate();
         if(rowsDeleted> 0){

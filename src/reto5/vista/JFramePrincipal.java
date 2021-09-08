@@ -122,6 +122,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
 
         btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         taErrores.setColumns(20);
         taErrores.setRows(5);
@@ -287,6 +292,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         controladorPrincipal.consultar();
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        controladorPrincipal.borrar();
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     /**
      * @param args the command line arguments

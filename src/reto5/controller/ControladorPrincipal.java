@@ -10,6 +10,7 @@ import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import reto5.dao.Actualizador;
+import reto5.dao.Borrador;
 import reto5.dao.CreatorConections;
 import reto5.dao.Insertador;
 import reto5.dao.Lector;
@@ -80,6 +81,21 @@ public class ControladorPrincipal {
         jFramePrincipal.getTfCelular().setText(cliente.getCelular().toString());
         jFramePrincipal.getTfClave().setText(cliente.getClave());
         jFramePrincipal.getTfFecha().setText(cliente.getFecha().toString());
+        }
+        catch(Exception e ){
+             StringWriter sw = new StringWriter();
+           e.printStackTrace(new PrintWriter(sw));
+           String exceptionsDetails = sw.toString();
+           jFramePrincipal.getTaErrores().setText(exceptionsDetails);
+        }
+    }
+
+    public void borrar() {
+         try{
+        String login = jFramePrincipal.getTfLogin().getText();
+        Cliente cliente = new Cliente();
+        Borrador.borrar(conn, login);
+             System.err.println("El borrado ha sido exitoso");
         }
         catch(Exception e ){
              StringWriter sw = new StringWriter();
